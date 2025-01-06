@@ -1,0 +1,289 @@
+#weather-widget-wrapper {
+    position: absolute;
+	top: 0;
+	left: 0;
+    padding: 2rem;
+    height: fit-content;
+    width: fit-content;
+    min-width: 350px;
+}
+
+.weather-widget {
+    height: fit-content;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 0.6rem;
+    padding: 1.25rem;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 5;
+
+    & .main-weather {
+        display: flex;
+        gap: 1rem;
+
+        /* & .left {} */
+
+        & .right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    & .location-name {
+        display: flex;
+
+        & .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+
+            & svg {
+                height: 1rem;
+                width: auto;
+            }
+        }
+
+        & .muted {
+            font-size: 0.8rem;
+            color: #a9a9a9;
+            margin-top: auto;
+            height: min-content;
+            margin-left: 0.3rem
+        }
+    }
+
+    & .temperature-wrapper {
+        margin-top: 0.3rem;
+
+        & .main-temperature {
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        & .weather-description {
+            color: #a9a9a9;
+            margin-top: -0.3rem;
+            font-size: 0.9rem;
+        }
+
+        & .temperature-description {
+            margin-top: 0.3rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    & .weather-icon {
+        & svg,
+        & img {
+            height: 6rem;
+            width: auto;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    }
+
+    & .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-top: 1rem;
+
+        & .chip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 25rem;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+    
+            & .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                & svg {
+                    height: 0.9rem;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+.wrapper-row {
+    display: flex;
+    margin-top: 0.5rem;
+    gap: 0.5rem;
+}
+
+.weather-sa-widget-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    & .weather-sa-widget {
+        height: fit-content;
+        background-color: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border-radius: 0.6rem;
+        padding: 0.5rem 1rem;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        & .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & svg {
+                height: 1.5rem;
+                width: auto;
+            }
+        }
+    }
+}
+
+.compass-wrapper {
+    width: fit-content;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 1rem 1.25rem 1.25rem;
+    border-radius: 0.6rem;
+
+    & header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+
+        & .muted {
+            color: #a9a9a9;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        & .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & svg {
+                height: 1.5rem;
+                width: auto;
+            }
+        }
+    }
+
+    #compass {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 5px solid rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.05);
+        /* backdrop-filter: blur(20px); */
+        user-select: none;
+    
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1rem;
+            height: auto;
+            aspect-ratio: 1/1;
+            transform: translate(-50%, -50%);
+            /* background-color: red; */
+            border-radius: 50%;
+        }
+  
+        .directions {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        
+            & span {
+                font-family: monospace;
+                position: absolute;
+                font-weight: 500;
+                font-size: 1.1rem;
+                transform: translate(-50%, -50%);
+            
+                &.north { top: 8%; left: 50%; }
+                &.east { top: 50%; left: 92%; }
+                &.south { top: 92%; left: 50%; }
+                &.west { top: 50%; left: 8%; }
+            }
+        }
+        
+        .ticks {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        
+            .tick {
+                position: absolute;
+                width: 2px;
+                height: 85px;
+                top: 10px;
+                left: 50%;
+                transform-origin: 50% 100%;
+                transform: rotate(0deg);
+    
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 10px;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                &.long::before {
+                    height: 16px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+
+        #needle {
+            position: absolute;
+            width: 4px;
+            height: 100%;
+            top: 0;
+            left: calc(50% - 2px);
+            transform: rotate(0deg);
+            transition: transform 1s ease-in-out;
+        
+            &::before {
+                content: '';
+                position: absolute;
+                top: 15%;
+                left: 0;
+                height: 35%;
+                width: 100%;
+                background: red;
+                border-radius: 10rem
+            }
+        }
+    }
+}
