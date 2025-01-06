@@ -1,4 +1,4 @@
-const apiKey = 'b2e27412b03b67f5a4c868cd9410e2c9';
+const apiKey = 'key';
 const baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 // Check if a cached location is available
